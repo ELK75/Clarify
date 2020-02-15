@@ -1,0 +1,12 @@
+.m {
+    list-style: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-style: solid;
+    border-width: thin;
+    border-top: 0cm;
+    border-right: 0cm;
+    border-left: 0cm;
+}
