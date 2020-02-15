@@ -16,10 +16,10 @@ const server = app.listen(port, () => console.log('server started on port 5000')
 
 //Bodyparser middleware
 app.use(bodyParser.json());
+app.use(express.static('src'))
 
 //DB config
 const db = require('./config/keys').mongoURI;
-
 const io = socket(server);
 
 //connect to mongo
@@ -30,7 +30,13 @@ mongoose.connect(db)
 
 //use routes
 app.use('/api/sessions', sessions);
+app.use('/api/users', users);
 
 io.on('connection', function(socket){
     console.log('made socket connection')
+    socket.on('chat', data =>{
+        console.log('sending back' + data.type);
+        io.sockets.emit('chat', data);
+    })
+    
 });

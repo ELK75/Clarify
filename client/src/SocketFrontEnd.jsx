@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import Message from './components/Message';
 
-//make front end connection
+const io = require('socket.io-client');
 const socket = io.connect('http://localhost:5000');
 
 const SocketFrontEnd = () => {
