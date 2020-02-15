@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import uuid from 'uuid/v1';
 
 import Message from './components/Message';
 
@@ -6,23 +7,34 @@ import Message from './components/Message';
 const io = require('socket.io-client');
 const socket = io.connect('http://localhost:4000');
 
+
+
 const SocketFrontEnd = () => {
     const[type, setType]= useState('');
-    const[output, setOutput] = useState('');
     const [messages, setMessages] = useState([]);
-   
+
+    //connecting to specific room
+    var room = 'test';
+    socket.on('connect', function(){
+        console.log("trying to join")
+        socket.emit('room' , room);
+    });
+
+    
+    //handling the new message
     const handleNewMessage = (e) => {
         e.preventDefault();
         console.log('new message emmitting');
         if(type){
-            console.log(type);
+            console.log('sending out ' + type);
             socket.emit('chat', {type: type})
         }
     }
 
+    //receiving message from socket backend
     socket.on('chat', data => {
-        console.log(data);
-        setMessages([...messages, <Message text={data.type}/>]);
+        console.log('reached');
+        setMessages([...messages, <Message text={data.type} id={uuid()}/>]);
     })
     
 
