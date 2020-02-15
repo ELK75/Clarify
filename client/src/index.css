@@ -64,3 +64,16 @@ code {
 .vh-100 {
   height: 100vh;
 }
+
+.nav-link {
+  color: black;
+}
+
+.list-none {
+  list-style: none;
+}
+
+.big-ass-text {
+  padding-top: 80px;
+  font-size: 100px;
+}

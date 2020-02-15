@@ -32,15 +32,15 @@ mongoose.connect(db)
 app.use('/api/sessions', sessions);
 app.use('/api/users', users);
 
-io.sockets.on('connection', function(socket){
-    var roomName = "test";
-    socket.on('room', function(room){
-        console.log('joining room');
-        roomName = room;
-        socket.join(room);
-    });
+io.on('connection', function(socket){
+    // var roomName = 'test';
+    // socket.on('room', function(room){
+    //     console.log('joining '  + room);
+    //     roomName = room;
+    //     socket.join('test');
+    // });
     socket.on('chat', data =>{
-        console.log('sending back' + data.type);
-        io.sockets.in(roomName).emit('chat', data);
+        console.log('sending back ' + data.type + " on " + roomName);
+        io.sockets.emit('chat', data);
     });
 });

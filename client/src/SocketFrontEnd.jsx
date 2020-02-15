@@ -8,12 +8,12 @@ const io = require('socket.io-client');
 const socket = io.connect('http://localhost:5000');
 
 // const gamePin = getRandomInt(1000000);
-const SocketFrontEnd = () => {
+const SocketFrontEnd = (props) => {
     const[type, setType]= useState('');
     const [messages, setMessages] = useState([]);
 
     //connecting to specific room
-    var room = "test";
+    var room = props.pin;
     socket.on('connect', function(){
         console.log("trying to join: " + room)
         socket.emit('room' , room);

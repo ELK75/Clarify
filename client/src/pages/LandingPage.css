@@ -18,3 +18,19 @@
 .image-header {
     padding-top: 15vh;
 }
+
+.text-xxl {
+  font-size: 50px;
+}
+
+.btn-xl {
+  height: 250px;
+  width: 400px;
+  margin-top: 200px;
+}
+
+.btn-big-bb {
+  height: 150px;
+  width: 400px;
+  margin-top: 150px;
+}

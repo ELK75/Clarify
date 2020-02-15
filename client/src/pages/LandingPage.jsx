@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import './LandingPage.css'
 import MovingText from '../components/MovingText';
+import Dashboard from '../pages/Dashboard';
 import Icon from '../assets/faq.svg';
 
 import Form from 'react-bootstrap/Form';
@@ -12,6 +13,16 @@ export default function LandingPage() {
 
     const [googleLogin, setGoogleLogin] = useState(false);
     const [code, setCode] = useState('');
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const [login, setLogin] = useState(true);
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        setLogin(true);
+    }
 
     let screen;
 
@@ -29,7 +40,7 @@ export default function LandingPage() {
     //     setGoogleLogin(true);
     // }
 
-    screen = !code ? (
+    screen = !login ? (
         <div>
             <div>
                 <div className="row h-100">
@@ -59,13 +70,13 @@ export default function LandingPage() {
                                     {/* <a href="http://localhost:5000/login/google" type="button" className="btn btn-outline-success google-button mt-4 mb-5">Login to Google</a> */}
                                     {/* </OauthPopup> */}
 
-                                    <Form className="mt-4">
+                                    <Form className="mt-4" onSubmit={e => submitForm(e)}>
                                         <Form.Group controlId="formBasicEmail">
-                                            <Form.Control type="email" placeholder="Enter Email" />
+                                            <Form.Control type="email" placeholder="Enter Email" onChange={e => setUsername(e.target.value)}/>
                                         </Form.Group>
 
                                         <Form.Group controlId="formBasicPassword">
-                                            <Form.Control type="password" placeholder="Password" />
+                                            <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
                                         </Form.Group>
                                         <Button variant="primary" type="submit" className="w-100 bg-color-main">
                                             Log In
@@ -79,8 +90,7 @@ export default function LandingPage() {
             </div>
         </div>) : 
         (
-
-            <div className="" onClick={testFunc}>{code}</div>
+            <Dashboard username={username} password={password}/>            
         )
     return screen;
 }
