@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import Message from '../components/Message';
+import Message from './client/src/components/Message';
 
 //make front end connection
 const io = require('socket.io-client');
