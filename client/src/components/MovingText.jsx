@@ -5,14 +5,14 @@ import './MovingText.scss';
 
 export default function MovingText() {
     return (
-        <h2 className="font-weight-light pt-2">
+        <h4 className="font-weight-light pt-2">
             A perfect app for any {" "}
             <TextLoop>
-                <h2 className="color-main font-weight-light"> lecture.</h2>
-                <h2 className="color-main font-weight-light"> meeting.</h2>
-                <h2 className="color-main font-weight-light"> town hall.</h2>
-                <h2 className="color-main font-weight-light"> Q&amp;A.</h2>
+                <h4 className="color-main font-weight-light"> lecture.</h4>
+                <h4 className="color-main font-weight-light"> meeting.</h4>
+                <h4 className="color-main font-weight-light"> town hall.</h4>
+                <h4 className="color-main font-weight-light"> Q&amp;A.</h4>
             </TextLoop>
-        </h2>
+        </h4>
     )
 }

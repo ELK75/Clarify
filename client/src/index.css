@@ -11,3 +11,52 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.w-70 {
+  width: 70%;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+.color-main {
+  color: #6C63FF;
+}
+
+.fill-main {
+  color: #6C63FF;
+}
+
+.icon {
+	/* display: inline-block; */
+  color: #444444;
+  width: 20px;
+  height: 20px;
+  padding-bottom: 5px;
+  margin-right: 3px;
+  /* width: 1em; */
+	/* height: 1em; */
+	fill: currentColor;
+}
+.icon-home {
+  /* Using currentColor above lets
+  us use `color` for changing the color
+  of our icons: */
+  color: #6C63FF;
+  
+  /* The width and height of the SVG
+  was previously set to 1em.
+  This allows us to use `font-size`
+  to change the size of our icon: */
+  /* font-size: px; */
+}
+
+.svg-icon {
+  width: 0;
+  height: 0;
+}
+
+.vh-100 {
+  height: 100vh;
+}
