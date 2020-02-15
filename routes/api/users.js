@@ -20,6 +20,10 @@ router.get('/', (req,res) =>{
 router.post('/', (req,res) =>{
     const newUser = new User({
         googleId: req.body.googleId,
+        userName: req.body.userName,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        password: req.body.password
     });
 
     newUser.save().then(user => res.json(user));
