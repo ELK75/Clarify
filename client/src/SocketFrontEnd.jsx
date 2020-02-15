@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 
-import Message from './client/src/components/Message';
+import Message from './components/Message';
 
 //make front end connection
 const socket = io.connect('http://localhost:5000');
 
-const Test = () => {
+const SocketFrontEnd = () => {
     const[type, setType]= useState('');
     const[output, setOutput] = useState('');
     const [messages, setMessages] = useState([]);
@@ -45,5 +45,5 @@ const Test = () => {
      );
 }
 
-export default Test;
+export default SocketFrontEnd;
  
