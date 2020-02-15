@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './LandingPage.css'
-import MovingText from '../MovingText/MovingText';
+import MovingText from '../components/MovingText';
 import Icon from '../logo.svg';
 
 import Header from '../components/Header';
