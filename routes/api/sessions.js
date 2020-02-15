@@ -24,14 +24,17 @@ router.post('/', (req,res) =>{
         posts: req.body.posts 
     });
 
-    newSession.save().then(sesion => res.json(session));
+    newSession.save().then(session => res.json(session));
 })
 
-
-router.delete('/:id', (req,res) =>{
+//@route DELETE api/sessions/:id
+//@desc Delete a session
+//@access Public
+router 
+    .delete("/:id",(req,res)=> {
     Session.findById(req.params.id)
-    .then(session => session.remove().then(() => res.json({sucess:true})))
-    .catch(err => res.status(404).json({success: false}))
-})
+        .then(session => session.remove().then(()=> res.json({success: true})))
+        .catch(err => res.status(404).json({success: false}));
+    })
 
 module.exports = router;

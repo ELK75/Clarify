@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Chema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 //Create schema
 const SessionSchema = new Schema({
