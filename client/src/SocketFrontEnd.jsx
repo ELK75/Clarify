@@ -7,14 +7,13 @@ import Message from './components/Message';
 const io = require('socket.io-client');
 const socket = io.connect('http://localhost:5000');
 
-
-
+// const gamePin = getRandomInt(1000000);
 const SocketFrontEnd = () => {
     const[type, setType]= useState('');
     const [messages, setMessages] = useState([]);
 
     //connecting to specific room
-    var room = 'test';
+    var room = "test";
     socket.on('connect', function(){
         console.log("trying to join: " + room)
         socket.emit('room' , room);
