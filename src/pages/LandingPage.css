@@ -1,0 +1,20 @@
+.text-header {
+    height: 85vh;
+    clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+    background-color: #6C63FF;
+    background-size: cover;
+    background-position: top;
+    position: relative;
+}
+
+.header-text {
+  font-size: 3.5em;
+}
+
+.sub-header-text {
+  font-size: 2em;
+}
+
+.image-header {
+    padding-top: 15vh;
+}
