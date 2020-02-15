@@ -1,11 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './LandingPage.css'
 import MovingText from '../components/MovingText';
 import Icon from '../assets/faq.svg';
 
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
+
 export default function LandingPage() {
-    return (
+
+    const [googleLogin, setGoogleLogin] = useState(false);
+    const [code, setCode] = useState('');
+
+    let screen;
+
+    const testFunc = () => {
+        fetch('/secret').then(res =>
+        res.json()).then(res => console.log(res))
+        .catch(err => console.log(err));
+    }
+
+    const loginButton = () => {
+        fetch('/login/google').then(res => console.log('brhr'))
+    }
+
+    // const authenticateUser = () => {
+    //     setGoogleLogin(true);
+    // }
+
+    screen = !code ? (
         <div>
             <div>
                 <div className="row h-100">
@@ -30,13 +54,33 @@ export default function LandingPage() {
                                 <div className="mx-auto w-70">
                                     <img src={Icon} height={250} alt="Main Icon" />
                                     <h4 className="font-weight-light pt-4 text-center">Sign into Google to join a session or start hosting your own.</h4>
-                                    <button type="button" className="btn btn-outline-success google-button mt-4 mb-5">Login with Google</button>
+                                    {/* <OauthPopup url="http://localhost:5000/login/google" onCode={code => setCode(code)}> */}
+
+                                    {/* <a href="http://localhost:5000/login/google" type="button" className="btn btn-outline-success google-button mt-4 mb-5">Login to Google</a> */}
+                                    {/* </OauthPopup> */}
+
+                                    <Form className="mt-4">
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Control type="email" placeholder="Enter Email" />
+                                        </Form.Group>
+
+                                        <Form.Group controlId="formBasicPassword">
+                                            <Form.Control type="password" placeholder="Password" />
+                                        </Form.Group>
+                                        <Button variant="primary" type="submit" className="w-100 bg-color-main">
+                                            Log In
+                                        </Button>
+                                    </Form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        </div>) : 
+        (
+
+            <div className="" onClick={testFunc}>{code}</div>
+        )
+    return screen;
 }

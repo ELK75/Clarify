@@ -24,8 +24,12 @@ code {
   color: #6C63FF;
 }
 
+.bg-color-main {
+  background-color: #6C63FF !important;
+}
+
 .fill-main {
-  color: #6C63FF;
+  fill: #6C63FF !important;
 }
 
 .icon {
