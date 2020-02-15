@@ -16,7 +16,7 @@ const server = app.listen(port, () => console.log('server started on port 5000')
 
 //Bodyparser middleware
 app.use(bodyParser.json());
-app.use(express.static('src'))
+app.use(express.static('src'));
 
 //DB config
 const db = require('./config/keys').mongoURI;
@@ -32,11 +32,18 @@ mongoose.connect(db)
 app.use('/api/sessions', sessions);
 app.use('/api/users', users);
 
+io.sockets.on('connection', function(socket){
+    socket.on('room', function(room){
+        console.log('joining room');
+        socket.join(room);
+    });
+});
+
 io.on('connection', function(socket){
     console.log('made socket connection')
     socket.on('chat', data =>{
         console.log('sending back' + data.type);
-        io.sockets.emit('chat', data);
+        io.sockets.in('test').emit('chat', data);
     })
     
 });
