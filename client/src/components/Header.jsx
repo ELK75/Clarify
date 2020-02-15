@@ -8,7 +8,7 @@ export default function Header() {
     return (
         <Navbar bg="light" expand="lg">
             {/* <Logo /> */}
-            <Navbar.Brand href="#home">Clarafi</Navbar.Brand>
+            <Navbar.Brand href="#home">Clarify</Navbar.Brand>
         </Navbar>
     );
 }
