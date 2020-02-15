@@ -4,6 +4,7 @@ import uuid from 'uuid/v1';
 import Message from './components/Message';
 
 //make front end connection
+const io = require('socket.io-client');
 const socket = io.connect('http://localhost:5000');
 
 
@@ -15,7 +16,7 @@ const SocketFrontEnd = () => {
     //connecting to specific room
     var room = 'test';
     socket.on('connect', function(){
-        console.log("trying to join")
+        console.log("trying to join: " + room)
         socket.emit('room' , room);
     });
 

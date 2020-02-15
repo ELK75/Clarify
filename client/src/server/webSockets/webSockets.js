@@ -13,10 +13,12 @@ app.use(express.static('src'));
 var io = socket(server);
 
 io.sockets.on('connection', function(socket){
-    socket.on('room', function(room){
-        console.log('joined room');
+    console.log("this");
+    console.log('joining ' + room);
+    io.socket.on('room', function(room) {
         socket.join(room);
     });
+    
 });
 
 
@@ -25,7 +27,7 @@ io.on('connection', socket => {
 
    // var room = 'test';
    // receiving data sent and emitting to all sockets
-    socket.on('chat', data =>{
+    io.socket.on('chat', data =>{
         console.log('receiving ' + data.type);
         io.sockets.in('test').emit('chat', data);
     })
