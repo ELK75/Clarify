@@ -3,8 +3,7 @@ import React, {useState} from 'react';
 import Message from './client/src/components/Message';
 
 //make front end connection
-const io = require('socket.io-client');
-const socket = io.connect('http://localhost:4000');
+const socket = io.connect('http://localhost:5000');
 
 const Test = () => {
     const[type, setType]= useState('');

@@ -19,8 +19,7 @@ router.get('/', (req,res) =>{
 // @access Public
 router.post('/', (req,res) =>{
     const newUser = new User({
-        userName: req.body.userName,
-        posts: req.body.posts 
+        googleId: req.body.googleId,
     });
 
     newUser.save().then(user => res.json(user));

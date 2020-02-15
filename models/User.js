@@ -3,15 +3,12 @@ const Schema = mongoose.Schema;
 
 //Create schema
 const UserSchema = new Schema({
-    userName:{
+    googleId: {
         type: String
     },
     date: {
         type: Date,
         default: Date.now
-    },
-    profilePhoto: {
-        uri: String
     },
     hostedSessions: [{
         sessionId: String
