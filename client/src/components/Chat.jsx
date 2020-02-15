@@ -8,27 +8,28 @@ import './Chat.css';
 const io = require('socket.io-client');
 const socket = io.connect('http://localhost:5000');
 
+var room = 'test';
+socket.on('connect', function () {
+    console.log("trying to join: " + room)
+    socket.emit('room', room);
+});
+
 export default function Chat(props) {
 
     const [type, setType] = useState('');
     const [messages, setMessages] = useState([]);
 
     //connecting to specific room
-    // var room = 'test';
-    // socket.on('connect', function () {
-    //     console.log("trying to join: " + room)
-    //     socket.emit('room', room);
-    // });
 
 
     //handling the new message
     const handleNewMessage = (e) => {
         e.preventDefault();
-        console.log('new message emmitting');
         if (type) {
             console.log('sending out ' + type);
-            socket.emit('chat', { type: type })
+            socket.emit('chat', { type })
         }
+        setType('');
     }
 
     //receiving message from socket backend
@@ -46,10 +47,10 @@ export default function Chat(props) {
                 <h2>{props.pin}</h2> 
             </div>
             <div id="chat-window">
-                <div id="output overflow-auto"></div>
+                <div id="output"></div>
                 <div id="feedback"></div>
             </div>
-            <div className = "textWindow">
+            <div className = "textWindow overflow-auto">
                 {messages}
             </div>
             <form className="row" onSubmit = {handleNewMessage}>

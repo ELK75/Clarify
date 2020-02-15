@@ -8,16 +8,24 @@ import Chat from '../components/Chat';
 
 
 export default function Dashboard(props) {
-    const[pin, setPin] = useState('');
+    const [pin, setPin] = useState('');
     const [hostingRoom, setHostingRoom] = useState(false);
     const [joiningRoom, setJoiningRoom] = useState(false);
+    const [type, setType] = useState('');
 
     const [beginChat, setBeginChat] = useState(false);
 
-    const handleNewPin = () => {
-        setHostingRoom(true);
-        setPin(Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000);
-        console.log(pin);
+
+    const handleNewPin = (isHosting) => {
+        setBeginChat(true);
+        setHostingRoom(isHosting);
+        if (isHosting) {
+            setPin("Mental Health Professional");
+        } else {
+            setPin("Looking for Help");
+        }
+        // setPin(Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000);
+        // console.log(pin);
         //route to chat
     }
  
@@ -30,10 +38,10 @@ export default function Dashboard(props) {
                 <div className="row h-100">
                     <div className="col-6 text-center">
                         {/* <input type="text" value={pin} onChange={(e) => setPin(e.target.value)} /> */}
-                        <button type="button" class="btn btn-primary btn-xl"><p className="text-xxl">Join a Room</p></button>
+                        <button type="button" class="btn btn-primary btn-xl" onClick={() => handleNewPin(false)}><p className="text-xxl">Find a Mental Health Professional</p></button>
                     </div>
                     <div className="col-6 text-center">
-                        <button type="button" class="btn btn-danger btn-xl" onClick={handleNewPin}><p className="text-xxl">Host a Room</p></button>
+                        <button type="button" class="btn btn-danger btn-xl" onClick={() => handleNewPin(true)}><p className="text-xxl">Talk to Someone in Need</p></button>
                     </div>
                     {/* <SocketFrontEnd pin={pin} /> */}
                 </div>
@@ -54,6 +62,17 @@ export default function Dashboard(props) {
 
     if (beginChat) {
         page = <Chat pin={pin}/>
+    }
+
+    if(joiningRoom) {
+        page = (
+            <div>
+                <form className="row">
+                    <div className="col-10" ><input id="message" type="text" placeholder="Message" value={type} onChange={(e) => setType(e.target.value)} /></div>
+                    <div className="col-2"><button id="send">Send</button></div>
+                </form>   
+            </div>
+        )
     }
 
 

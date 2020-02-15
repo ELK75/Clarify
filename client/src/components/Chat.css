@@ -1,18 +1,22 @@
 #mario-chat{
     /* max-width: 600px; */
     margin: 30px auto;
-    border: 1px solid #ddd;
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    /* border: 1px solid #ddd; */
+    color: grey;
+    /* box-shadow: 1px 3px 5px rgba(0,0,0,0.05); */
     border-radius: 2px;
 }
 
 #chat-window{
-    height: 85vh;
+    /* height: 600px; */
     overflow: auto;
     background: #f9f9f9;
 }
+
 .textWindow {
+  height: 600px;  
 }
+
 ::selection {
     color: none;
     background: none;
