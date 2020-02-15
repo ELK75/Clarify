@@ -1,16 +1,26 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const socket = require('socket.io');
+
+// const socket = io.connect('http://localhost:4000');
 
 const sessions = require('./routes/api/sessions');
+const users = require('./routes/api/users');
 
 const app = express();
+
+const port = process.env.PORT || 5000;
+
+const server = app.listen(port, () => console.log('server started on port 5000'));
 
 //Bodyparser middleware
 app.use(bodyParser.json());
 
 //DB config
 const db = require('./config/keys').mongoURI;
+
+const io = socket(server);
 
 //connect to mongo
 mongoose.connect(db)
@@ -21,6 +31,6 @@ mongoose.connect(db)
 //use routes
 app.use('/api/sessions', sessions);
 
-const port = process.env.PORT || 5000;
-
-app.listen(port, () => console.log('server started on port 5000'));
+io.on('connection', function(socket){
+    console.log('made socket connection')
+});

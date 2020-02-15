@@ -4,8 +4,7 @@ import uuid from 'uuid/v1';
 import Message from './components/Message';
 
 //make front end connection
-const io = require('socket.io-client');
-const socket = io.connect('http://localhost:4000');
+const socket = io.connect('http://localhost:5000');
 
 
 

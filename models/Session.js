@@ -18,7 +18,7 @@ const SessionSchema = new Schema({
         likes: Number,
         comment: String,
         poster: {
-            userId: String,
+            googleId: String,
             userName: String
         }
     }}]
