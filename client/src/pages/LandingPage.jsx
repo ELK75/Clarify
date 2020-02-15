@@ -2,15 +2,11 @@ import React from 'react'
 
 import './LandingPage.css'
 import MovingText from '../components/MovingText';
-import Icon from '../assets/hand.svg';
-
-import Header from '../components/Header';
+import Icon from '../assets/faq.svg';
 
 export default function LandingPage() {
     return (
         <div>
-            {/* <Header /> */}
-
             <div>
                 <div className="row h-100">
                     <div className="col-md-6 text-header vh-100">
