@@ -2,18 +2,18 @@ import React from 'react'
 
 import './LandingPage.css'
 import MovingText from '../components/MovingText';
-import Icon from '../logo.svg';
+import Icon from '../assets/faq.svg';
 
 import Header from '../components/Header';
 
 export default function LandingPage() {
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
 
             <div>
                 <div className="row h-100">
-                    <div className="col-md-6 text-header">
+                    <div className="col-md-6 text-header vh-100">
                         <h1 className="text-white pt-5 pl-5 font-weight-light header-text">Welcome to Clarafi.</h1>
                         <h3 className="text-white pl-5 font-weight-light sub-header-text">Never leave a question unanswered.</h3>
                         <h4 className="text-white pl-5 font-weight-light pt-5 text-wrap w-75">Clarafi allows you to pose questions anonymously in real-time which can be answered by someone hosting a session.</h4>
@@ -23,7 +23,7 @@ export default function LandingPage() {
                                     <MovingText />
                                 </div>
                                 <div className="card-body">
-                                    <h6 className="font-weight-light">With Clarafi, getting important information in a timely manner has never been easier. Just join a session and ask away!</h6>
+                                    <h4 className="font-weight-light">With Clarafi, getting important information in a timely manner has never been easier. Just join a session and ask away!</h4>
                                 </div>
                             </div>
                         </div>
